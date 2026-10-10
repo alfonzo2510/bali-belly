@@ -75,7 +75,7 @@ function syd(ms){const o={};SYD.formatToParts(ms).forEach(p=>o[p.type]=p.value);
 function mondayNow(){const s=syd(Date.now());return new Date(Date.UTC(s.y,s.m-1,s.d-(s.wd+6)%7)).toISOString().slice(0,10)}
 function weekNo() { return Math.floor((Date.parse(mondayNow()) - Date.parse(FIRST_MONDAY)) / 6048e5) + 1; }
 const fmt = n => (n > 0 ? "" : n < 0 ? "−" : "") + Math.abs(n).toFixed(1) + "%";
-const hero = `<div class="hero"><h1>🌺 Bali Belly Challenge</h1><p>6 people. 1 island. Zero kilos shown, only progress.</p></div>`;
+const hero = `<div class="hero"><h1>🌺 Bali Belly Challenge</h1><p>Everyone welcome. One island. Zero kilos shown, only progress.</p></div>`;
 
 async function boot() {
   const { data } = await db.auth.getSession();
