@@ -28,6 +28,7 @@ th{font-weight:500;color:var(--mute);font-size:.85rem}
 tr:last-child td{border:0}
 td.n{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
 .up{color:var(--leaf);font-weight:500;font-size:.85rem}
+.gain{color:#FFB4A2;font-weight:500;font-size:.85rem}
 .wait{color:var(--mute);font-size:.8rem}
 .me td:nth-child(2){color:var(--sun)}
 input,button{font:inherit;border-radius:12px;border:2px solid var(--line);padding:12px;width:100%;background:#0B3C49;color:var(--ink);margin-bottom:10px}
@@ -142,7 +143,7 @@ async function dash() {
     <div class="card"><h2 style="margin-bottom:6px">Leaderboard</h2><table><tr><th></th><th>Name</th><th style="text-align:right">% lost</th></tr>
     ${rows.map((r, i) => `<tr class="${r.name === "" ? "me" : ""}"><td>${["🥇", "🥈", "🥉"][i] || i + 1}</td>
     <td>${esc(r.name)} ${r.done ? "" : '<span class="wait">⏳ weigh-in due</span>'}</td>
-    <td class="n">${fmt(r.now)}<br>${r.delta ? `<span class="up">${r.delta > 0 ? "▲" : "▼"} ${fmt(Math.abs(r.delta))}</span>` : ""}</td></tr>`).join("")}</table>
+    <td class="n">${fmt(r.now)}<br>${r.delta ? `<span class="${r.delta > 0 ? "up" : "gain"}">${r.delta > 0 ? "▼" : "▲"} ${fmt(Math.abs(r.delta))}</span>` : ""}</td></tr>`).join("")}</table>
     <p class="note">Updates every Monday weigh-in. Rankings refresh live.</p></div>
     <div class="card"><h2>Monday weigh-in</h2>
     ${status.logged ? `<p class="ok">✓ Logged for this week. Nice work!</p>` : ""}
